@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Clean | Shopping Center Management</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Ionicons for premium feel -->
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div id="app-container">
+        <!-- Sidebar Navigation (Desktop) -->
+        <nav id="sidebar">
+            <div class="logo">
+                <ion-icon name="flash-outline"></ion-icon>
+                <span>Dynamic <strong>Clean</strong></span>
+            </div>
+            <div id="system-clock"
+                style="padding: 0 20px; margin-bottom: 20px; font-size: 0.85rem; color: var(--primary-light); font-weight: 500;">
+                <ion-icon name="time-outline" style="vertical-align: middle; margin-right: 5px;"></ion-icon>
+                <span id="current-time">00:00:00</span>
+                <div id="current-date" style="font-size: 0.7rem; color: var(--text-muted); margin-top: 2px;">01 Jan 2026
+                </div>
+            </div>
+            <ul class="nav-links">
+                <li class="active" data-view="dashboard">
+                    <ion-icon name="grid-outline"></ion-icon>
+                    <span>Dashboard</span>
+                </li>
+                <li data-view="areas">
+                    <ion-icon name="map-outline"></ion-icon>
+                    <span>Áreas</span>
+                </li>
+                <li data-view="tasks">
+                    <ion-icon name="clipboard-outline"></ion-icon>
+                    <span>Tareas</span>
+                </li>
+                <li data-view="auxiliaries">
+                    <ion-icon name="people-outline"></ion-icon>
+                    <span>Auxiliares</span>
+                </li>
+                <li data-view="resources">
+                    <ion-icon name="cube-outline"></ion-icon>
+                    <span>Recursos</span>
+                </li>
+                <li data-view="worker_master">
+                    <ion-icon name="list-outline"></ion-icon>
+                    <span>Base Personal</span>
+                </li>
+                <li data-view="audit_log">
+                    <ion-icon name="journal-outline"></ion-icon>
+                    <span>Bitácora Movimientos</span>
+                </li>
+            </ul>
+            <div class="user-profile">
+                <div class="avatar">AD</div>
+                <div class="info">
+                    <p class="name">Admin Plaza</p>
+                    <p class="role">Manager</p>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Main Content Area -->
+        <main id="main-content">
+            <header>
+                <h1 id="view-title">Dashboard</h1>
+                <div class="header-actions">
+                    <button id="add-task-btn" class="btn btn-primary">
+                        <ion-icon name="add-outline"></ion-icon>
+                        Nueva Tarea
+                    </button>
+                    <div class="notification-bell">
+                        <ion-icon name="notifications-outline"></ion-icon>
+                        <span class="badge">3</span>
+                    </div>
+                </div>
+            </header>
+
+            <div id="view-container">
+                <!-- Dynamic Content Loads Here -->
+            </div>
+        </main>
+
+        <!-- Bottom Navigation (Mobile) -->
+        <nav id="bottom-nav">
+            <div class="nav-item active" data-view="dashboard">
+                <ion-icon name="grid-outline"></ion-icon>
+                <span>Dashboard</span>
+            </div>
+            <div class="nav-item" data-view="tasks">
+                <ion-icon name="clipboard-outline"></ion-icon>
+                <span>Tareas</span>
+            </div>
+            <div class="nav-item" data-view="areas">
+                <ion-icon name="map-outline"></ion-icon>
+                <span>Zonas</span>
+            </div>
+            <div class="nav-item" data-view="worker_master">
+                <ion-icon name="list-outline"></ion-icon>
+                <span>Personal</span>
+            </div>
+            <div class="nav-item" data-view="audit_log">
+                <ion-icon name="journal-outline"></ion-icon>
+                <span>Bitácora</span>
+            </div>
+            <div class="nav-item" data-view="auxiliary_portal" id="mobile-aux-btn">
+                <ion-icon name="person-outline"></ion-icon>
+                <span>Portal Aux</span>
+            </div>
+        </nav>
+    </div>
+
+    <!-- Modals -->
+    <div id="modal-container" class="modal-overlay hidden">
+        <div class="modal">
+            <div class="modal-header">
+                <h2 id="modal-title">Título Modal</h2>
+                <button class="close-modal"><ion-icon name="close-outline"></ion-icon></button>
+            </div>
+            <div id="modal-content" class="modal-body">
+                <!-- Dynamic Modal Content -->
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+
+</html>
