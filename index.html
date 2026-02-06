@@ -4,130 +4,153 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dynamic Clean | Shopping Center Management</title>
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <!-- Ionicons for premium feel -->
+    <title>Advance | Portal de Administración</title>
+    <link rel="stylesheet" href="style.css">
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-    <div id="app-container">
-        <!-- Sidebar Navigation (Desktop) -->
-        <nav id="sidebar">
-            <div class="logo">
-                <ion-icon name="flash-outline"></ion-icon>
-                <span>Dynamic <strong>Clean</strong></span>
-            </div>
-            <div id="system-clock"
-                style="padding: 0 20px; margin-bottom: 20px; font-size: 0.85rem; color: var(--primary-light); font-weight: 500;">
-                <ion-icon name="time-outline" style="vertical-align: middle; margin-right: 5px;"></ion-icon>
-                <span id="current-time">00:00:00</span>
-                <div id="current-date" style="font-size: 0.7rem; color: var(--text-muted); margin-top: 2px;">01 Jan 2026
+
+    <!-- PANTALLA DE LOGIN -->
+    <div id="login-screen">
+        <div class="login-card">
+            <h1>Iniciar sesión</h1>
+            <p>Usa tu cuenta de administrador de Advance</p>
+            <form id="login-form">
+                <div class="form-group">
+                    <label>Correo electrónico</label>
+                    <input type="email" id="login-email" required placeholder="admin@dynamic.com">
                 </div>
+                <div class="form-group">
+                    <label>Contraseña</label>
+                    <input type="password" id="login-password" required placeholder="••••••••">
+                </div>
+                <button type="submit" class="btn btn-primary"
+                    style="width: 100%; justify-content: center; margin-top: 20px;">Siguiente</button>
+            </form>
+            <div style="margin-top: 20px; font-size: 0.8rem; color: var(--text-secondary);">
+                ¿Olvidaste tu contraseña? Contacta a soporte técnico.
+            </div>
+        </div>
+    </div>
+
+    <!-- CONTENEDOR PRINCIPAL DE LA APP -->
+    <div id="app-container">
+        <!-- BARRA LATERAL (SIDEBAR) -->
+        <aside id="sidebar">
+            <div class="logo-section">
+                <ion-icon name="business-outline" style="font-size: 1.5rem;"></ion-icon>
+                <span>Admin Center</span>
             </div>
             <ul class="nav-links">
-                <li class="active" data-view="dashboard">
-                    <ion-icon name="grid-outline"></ion-icon>
-                    <span>Dashboard</span>
+                <li data-view="dashboard" class="active">
+                    <ion-icon name="home-outline"></ion-icon>
+                    <span>Inicio</span>
                 </li>
-                <li data-view="areas">
-                    <ion-icon name="map-outline"></ion-icon>
-                    <span>Áreas</span>
-                </li>
-                <li data-view="tasks">
-                    <ion-icon name="clipboard-outline"></ion-icon>
-                    <span>Tareas</span>
-                </li>
-                <li data-view="auxiliaries">
-                    <ion-icon name="people-outline"></ion-icon>
-                    <span>Auxiliares</span>
-                </li>
-                <li data-view="resources">
-                    <ion-icon name="cube-outline"></ion-icon>
-                    <span>Recursos</span>
-                </li>
-                <li data-view="worker_master">
-                    <ion-icon name="list-outline"></ion-icon>
-                    <span>Base Personal</span>
-                </li>
-                <li data-view="audit_log">
-                    <ion-icon name="journal-outline"></ion-icon>
-                    <span>Bitácora Movimientos</span>
-                </li>
-            </ul>
-            <div class="user-profile">
-                <div class="avatar">AD</div>
-                <div class="info">
-                    <p class="name">Admin Plaza</p>
-                    <p class="role">Manager</p>
-                </div>
-            </div>
-        </nav>
 
-        <!-- Main Content Area -->
-        <main id="main-content">
+                <div class="nav-category">MONITOR DE SALUD</div>
+                <li data-view="predictive_maintenance">
+                    <ion-icon name="pulse-outline"></ion-icon>
+                    <span>Salud de Activos (IA)</span>
+                </li>
+                <li data-view="energy_management">
+                    <ion-icon name="leaf-outline"></ion-icon>
+                    <span>Gestión Energética</span>
+                </li>
+                <li data-view="digital_twin">
+                    <ion-icon name="cube-outline"></ion-icon>
+                    <span>Gemelo Digital (BIM)</span>
+                </li>
+
+                <div class="nav-category">OPERACIONES INTELIGENTES</div>
+                <li data-view="dynamic_clean_v2">
+                    <ion-icon name="sparkles-outline"></ion-icon>
+                    <span>Higiene Dinámica</span>
+                </li>
+                <li data-view="workforce_logistics">
+                    <ion-icon name="navigate-circle-outline"></ion-icon>
+                    <span>Fuerza de Trabajo</span>
+                </li>
+                <li data-view="smart_inventory">
+                    <ion-icon name="cart-outline"></ion-icon>
+                    <span>Inventario Inteligente</span>
+                </li>
+
+                <div class="nav-category">PROTECCIÓN Y SEGURIDAD</div>
+                <li data-view="safety_surveillance">
+                    <ion-icon name="eye-outline"></ion-icon>
+                    <span>Vigilancia Autónoma</span>
+                </li>
+
+                <div class="nav-category">PLANIFICACIÓN</div>
+                <li data-view="space_optimization">
+                    <ion-icon name="map-outline"></ion-icon>
+                    <span>Optimización Espacios</span>
+                </li>
+                <li data-view="absenteeism_prediction">
+                    <ion-icon name="trending-down-outline"></ion-icon>
+                    <span>Resiliencia Personal</span>
+                </li>
+
+                <div class="nav-category">INTELIGENCIA DE NEGOCIOS</div>
+                <li data-view="gen_ai_assistant">
+                    <ion-icon name="flash-outline"></ion-icon>
+                    <span>Asistente Advance (AI)</span>
+                </li>
+
+                <div class="nav-category">ADMINISTRACIÓN</div>
+                <li data-view="clients"><ion-icon name="briefcase-outline"></ion-icon> <span>Contratos</span></li>
+                <li data-view="worker_master"><ion-icon name="people-outline"></ion-icon> <span>Maestro Personal</span>
+                </li>
+                <li data-view="security"><ion-icon name="shield-checkmark-outline"></ion-icon> <span>Seguridad y
+                        Bóveda</span></li>
+            </ul>
+        </aside>
+
+        <!-- CONTENIDO PRINCIPAL -->
+        <main id="main">
             <header>
-                <h1 id="view-title">Dashboard</h1>
-                <div class="header-actions">
-                    <button id="add-task-btn" class="btn btn-primary">
-                        <ion-icon name="add-outline"></ion-icon>
-                        Nueva Tarea
-                    </button>
-                    <div class="notification-bell">
-                        <ion-icon name="notifications-outline"></ion-icon>
-                        <span class="badge">3</span>
+                <div class="header-left">
+                    <ion-icon name="menu-outline" style="font-size: 1.2rem; cursor: pointer;"></ion-icon>
+                    <div id="client-context" class="client-selector" onclick="showClientSelector()">
+                        <span>Global | Todas las operaciones</span>
+                        <ion-icon name="chevron-down-outline" style="font-size: 0.8rem; margin-left: 8px;"></ion-icon>
+                    </div>
+                </div>
+                <div class="header-right" style="display: flex; align-items: center; gap: 20px;">
+                    <div id="clock-display" style="text-align: right;">
+                        <div id="current-time" style="font-weight: 600; font-size: 0.9rem;">--:--:--</div>
+                        <div id="current-date" style="font-size: 0.7rem; color: var(--text-secondary);">Cargando...
+                        </div>
+                    </div>
+                    <div onclick="logout()" style="cursor: pointer; display: flex; align-items: center; gap: 8px;">
+                        <ion-icon name="person-circle-outline"
+                            style="font-size: 2rem; color: var(--text-secondary);"></ion-icon>
+                        <span style="font-size: 0.8rem;">Cerrar Sesión</span>
                     </div>
                 </div>
             </header>
 
             <div id="view-container">
-                <!-- Dynamic Content Loads Here -->
+                <!-- Las vistas se inyectan aquí dinámicamente -->
             </div>
         </main>
-
-        <!-- Bottom Navigation (Mobile) -->
-        <nav id="bottom-nav">
-            <div class="nav-item active" data-view="dashboard">
-                <ion-icon name="grid-outline"></ion-icon>
-                <span>Dashboard</span>
-            </div>
-            <div class="nav-item" data-view="tasks">
-                <ion-icon name="clipboard-outline"></ion-icon>
-                <span>Tareas</span>
-            </div>
-            <div class="nav-item" data-view="areas">
-                <ion-icon name="map-outline"></ion-icon>
-                <span>Zonas</span>
-            </div>
-            <div class="nav-item" data-view="worker_master">
-                <ion-icon name="list-outline"></ion-icon>
-                <span>Personal</span>
-            </div>
-            <div class="nav-item" data-view="audit_log">
-                <ion-icon name="journal-outline"></ion-icon>
-                <span>Bitácora</span>
-            </div>
-            <div class="nav-item" data-view="auxiliary_portal" id="mobile-aux-btn">
-                <ion-icon name="person-outline"></ion-icon>
-                <span>Portal Aux</span>
-            </div>
-        </nav>
     </div>
 
-    <!-- Modals -->
-    <div id="modal-container" class="modal-overlay hidden">
-        <div class="modal">
-            <div class="modal-header">
-                <h2 id="modal-title">Título Modal</h2>
-                <button class="close-modal"><ion-icon name="close-outline"></ion-icon></button>
+    <!-- MODAL CONTAINER (Microsoft Style) -->
+    <div id="modal-container" class="hidden"
+        style="position: fixed; inset: 0; background: rgba(0,0,0,0.4); display: flex; align-items: center; justify-content: center; z-index: 500;">
+        <div class="card"
+            style="width: 100%; max-width: 500px; padding: 0; box-shadow: 0 32px 64px rgba(0,0,0,0.187), 0 6px 12px rgba(0,0,0,0.145);">
+            <div
+                style="padding: 16px 24px; border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center;">
+                <h3 id="modal-title" style="font-size: 1.1rem; font-weight: 600;">Título Modal</h3>
+                <ion-icon name="close-outline" class="close-modal"
+                    style="font-size: 1.5rem; cursor: pointer;"></ion-icon>
             </div>
-            <div id="modal-content" class="modal-body">
-                <!-- Dynamic Modal Content -->
+            <div id="modal-content" style="padding: 24px;">
+                <!-- Contenido dinámico -->
             </div>
         </div>
     </div>
