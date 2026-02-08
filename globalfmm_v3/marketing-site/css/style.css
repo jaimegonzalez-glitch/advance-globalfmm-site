@@ -559,6 +559,30 @@ h2 {
     font-size: 0.9rem;
 }
 
+/* Advance Teaser Fix */
+.advance-card {
+    border-radius: 32px;
+    padding: 4rem;
+    border: 1px solid rgba(0, 223, 216, 0.2);
+    /* Default for Desktop */
+}
+
+.teaser-visual {
+    text-align: center;
+    background: #000000;
+    border-radius: 16px;
+    padding: 2rem;
+}
+
+.teaser-visual img {
+    max-height: 180px;
+    width: auto;
+    filter: drop-shadow(0 0 15px rgba(0, 112, 243, 0.3));
+    display: block;
+    max-width: 100%;
+    /* Prevent overflow */
+}
+
 @media (max-width: 992px) {
     .hero {
         grid-template-columns: 1fr;
@@ -663,6 +687,16 @@ h2 {
 
     .hero-mini {
         padding-top: 180px;
+    }
+
+    .advance-card {
+        padding: 1.5rem;
+        /* Drastic reduction from 4rem */
+        border-radius: 20px;
+    }
+
+    .teaser-visual {
+        padding: 1rem;
     }
 
     /* FIX: Prevent overflow on small screens */

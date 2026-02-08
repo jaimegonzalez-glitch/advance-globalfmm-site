@@ -24,7 +24,7 @@
         content="Gestión predictiva, activos inteligentes y eficiencia energética en una sola plataforma impulsada por IA.">
     <meta property="twitter:image" content="https://globalfmm.com/assets/images/advance_mockup.png">
 
-    <!-- Deployment Trigger v4: Force Rebuild -->
+    <!-- Deployment Trigger v5: Fix Advance Card Overflow -->
 
     <!-- Fuentes: Inter para texto técnico y Montserrat para impacto -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -35,6 +35,46 @@
 
     <link rel="stylesheet" href="css/style.css">
     <link rel="icon" href="assets/brand/logo-icon-clean.png" type="image/png">
+
+    <!-- CRITICAL MOBILE FIXES INJECTED -->
+    <style>
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.2rem !important;
+                word-wrap: break-word;
+            }
+
+            .hero-content {
+                padding: 0 1.5rem !important;
+            }
+
+            /* Fix Advance Card Overflow */
+            .advance-card {
+                padding: 1.5rem !important;
+                border-radius: 20px !important;
+            }
+
+            .advance-card .section-title {
+                font-size: 1.8rem !important;
+                /* Force smaller title */
+                line-height: 1.3 !important;
+            }
+
+            .advance-card .hero-lead {
+                font-size: 1rem !important;
+            }
+
+            .teaser-visual {
+                padding: 1rem !important;
+                margin-bottom: 1.5rem !important;
+            }
+
+            .teaser-visual img {
+                max-height: 140px !important;
+                /* Smaller logo */
+            }
+        }
+    </style>
 </head>
 
 <body>
@@ -145,11 +185,9 @@
         <!-- Sección Teaser: Advance -->
         <section id="acerca-advance" class="advance-teaser section-padding">
             <div class="container">
-                <div class="glass"
-                    style="border-radius: 32px; padding: 4rem; border: 1px solid rgba(0, 223, 216, 0.2);">
+                <div class="glass advance-card">
                     <div class="product-grid" style="align-items: center;">
-                        <div class="teaser-visual"
-                            style="text-align: center; background: #000000; border-radius: 16px; padding: 2rem;">
+                        <div class="teaser-visual">
                             <div style="position: relative; display: inline-block;">
                                 <img src="img/advance_logo_A_blue_text_white.png" alt="Advance Logo"
                                     style="max-height: 180px; width: auto; filter: drop-shadow(0 0 15px rgba(0, 112, 243, 0.3)); display: block;">
