@@ -664,6 +664,25 @@ h2 {
     .hero-mini {
         padding-top: 180px;
     }
+
+    /* FIX: Prevent overflow on small screens */
+    .hero-title {
+        font-size: 2.1rem;
+        /* Reduced from 3rem to fit 'Inteligencia' */
+        word-wrap: break-word;
+        /* Ensure long words break if necessary */
+        hyphens: auto;
+    }
+
+    .hero-content {
+        padding: 0 1.25rem;
+        /* More breathing room for text */
+    }
+
+    .hero-lead {
+        font-size: 1.1rem;
+        padding: 0 0.5rem;
+    }
 }
 
 @media (max-width: 992px) {

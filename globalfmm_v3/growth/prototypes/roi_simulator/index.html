@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulador ROI Mantenimiento Predictivo | Advance IA</title>
+    <meta name="description"
+        content="Calcula el retorno de inversión y los ahorros potenciales al implementar mantenimiento predictivo con IA. Herramienta gratuita de Advance IA.">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://globalfmm.com/simulador-roi.html">
+    <meta property="og:title" content="Simulador ROI | Advance IA Mantenimiento Predictivo">
+    <meta property="og:description"
+        content="Calcula tus ahorros operativos y energéticos con nuestra herramienta de simulación financiera.">
+    <meta property="og:image" content="https://globalfmm.com/assets/images/advance_mockup.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://globalfmm.com/simulador-roi.html">
+    <meta property="twitter:title" content="Simulador ROI | Advance IA">
+    <meta property="twitter:description"
+        content="Calcula tus ahorros operativos y energéticos con nuestra herramienta de simulación financiera.">
+    <meta property="twitter:image" content="https://globalfmm.com/assets/images/advance_mockup.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@700;800&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="assets/brand/logo-icon-clean.png" type="image/png">
+
+    <style>
+        .simulator-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            .simulator-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .input-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: var(--text-light);
+        }
+
+        .input-group input,
+        .input-group select {
+            width: 100%;
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            color: white;
+            font-size: 1rem;
+        }
+
+        .input-group input:focus {
+            outline: none;
+            border-color: var(--net-blue);
+        }
+
+        .result-card {
+            background: linear-gradient(135deg, rgba(0, 223, 216, 0.1) 0%, rgba(0, 0, 0, 0.4) 100%);
+            border: 1px solid var(--net-blue);
+            padding: 2rem;
+            border-radius: 16px;
+            text-align: center;
+        }
+
+        .roi-value {
+            font-size: 3rem;
+            font-weight: 800;
+            background: linear-gradient(90deg, #fff, var(--net-blue));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin: 1rem 0;
+        }
+
+        .savings-detail {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding-bottom: 0.5rem;
+        }
+
+        .range-slider {
+            width: 100%;
+            margin-top: 0.5rem;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="top"></div>
+    <div id="bg-network"></div>
+
+    <nav class="glass-nav">
+        <div class="nav-container">
+            <a href="index.html#top" class="logo-group">
+                <img src="img/global_fmm_logo_MAX_QUALITY_transparent.png" alt="Global FMM Logo" style="height: 160px;">
+            </a>
+            <div class="nav-links">
+                <a href="ecosistema.html">Ecosistema</a>
+                <a href="quienes-somos.html">Nosotros</a>
+                <a href="acerca-de-advance.html">Advance</a>
+                <a href="modelo-gestion.html">Modelo</a>
+                <a href="modulos.html">Módulos</a>
+                <a href="index.html#insights">Insights</a>
+                <a href="blog.html">Blog</a>
+                <a href="index.html#contacto">Contacto</a>
+            </div>
+            <button class="mobile-toggle"><span></span></button>
+        </div>
+    </nav>
+
+    <header class="hero" style="min-height: 60vh; padding-top: 150px;">
+        <div class="hero-content container">
+            <div class="hero-badge">Herramienta Financiera</div>
+            <h1 class="hero-title">
+                Simulador de ROI <br>
+                <span class="gradient-text">Mantenimiento Predictivo</span>
+            </h1>
+            <p class="hero-lead">
+                Estime el impacto financiero de transformar su gestión de activos reactiva a una estrategia predictiva
+                impulsada por IA.
+            </p>
+        </div>
+    </header>
+
+    <main>
+        <section class="section-padding container">
+            <div class="glass" style="padding: 2rem; border-radius: 24px;">
+                <form id="roi-form">
+                    <div class="simulator-container">
+                        <!-- Inputs -->
+                        <div class="simulator-inputs">
+                            <h3 style="margin-bottom: 1.5rem;">Datos de su Operación</h3>
+
+                            <div class="input-group">
+                                <label for="assetValue">Valor Total de Activos Críticos (USD)</label>
+                                <input type="number" id="assetValue" placeholder="Ej: 5000000" required>
+                            </div>
+
+                            <div class="input-group">
+                                <label for="maintenanceBudget">Presupuesto Anual de Mantenimiento (USD)</label>
+                                <input type="number" id="maintenanceBudget" placeholder="Ej: 250000" required>
+                            </div>
+
+                            <div class="input-group">
+                                <label for="downtimeCost">Costo Estimado por Hora de Parada (USD)</label>
+                                <input type="number" id="downtimeCost" placeholder="Ej: 5000" required>
+                            </div>
+
+                            <div class="input-group">
+                                <label for="energySpend">Gasto Anual en Energía (USD) - Opcional</label>
+                                <input type="number" id="energySpend" placeholder="Ej: 100000">
+                            </div>
+
+                            <button type="submit" class="btn-large btn-glow" style="width: 100%;">Calcular
+                                Ahorros</button>
+                        </div>
+
+                        <!-- Results -->
+                        <div class="simulator-results" id="results-area" style="opacity: 0.5; pointer-events: none;">
+                            <h3 style="margin-bottom: 1.5rem;">Proyección de Impacto (Anual)</h3>
+
+                            <div class="result-card">
+                                <p>ROI Estimado (Primer Año)</p>
+                                <div class="roi-value" id="roi-display">---%</div>
+                                <p style="font-size: 0.9rem; color: var(--text-muted);">Basado en benchmarks de
+                                    industria</p>
+                            </div>
+
+                            <div style="margin-top: 2rem;">
+                                <div class="savings-detail">
+                                    <span>Reducción de Mantenimiento Correctivo</span>
+                                    <span class="gradient-text" id="savings-maintenance">$0</span>
+                                </div>
+                                <div class="savings-detail">
+                                    <span>Ahorro en Energía (HVAC/Iluminación)</span>
+                                    <span class="gradient-text" id="savings-energy">$0</span>
+                                </div>
+                                <div class="savings-detail">
+                                    <span>Costo de Evitar Paradas (Downtime)</span>
+                                    <span class="gradient-text" id="savings-downtime">$0</span>
+                                </div>
+                                <div class="savings-detail"
+                                    style="border-top: 1px solid white; border-bottom: none; padding-top: 1rem; margin-top: 1rem;">
+                                    <strong style="font-size: 1.2rem;">Impacto Total Estimado</strong>
+                                    <strong style="font-size: 1.2rem; color: var(--net-blue);"
+                                        id="total-savings">$0</strong>
+                                </div>
+                            </div>
+
+                            <div style="margin-top: 2rem; text-align: center;">
+                                <p style="margin-bottom: 1rem;">¿Quiere un desglose detallado en PDF?</p>
+                                <button type="button" class="btn-large btn-outline" id="download-btn">Descargar Reporte
+                                    Ejecutivo</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <div class="container footer-grid">
+            <div class="footer-brand">
+                <img src="img/global_fmm_logo_MAX_QUALITY_transparent.png" alt="Global FMM Logo"
+                    style="height: 120px; width: auto; margin-bottom: 0.5rem;">
+                <p>Redefiniendo el futuro de la gestión de activos técnicos mediante inteligencia artificial.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Ecosistema</h4>
+                <a href="ecosistema.html">Ecosistema</a>
+                <a href="quienes-somos.html">Nosotros</a>
+                <a href="modulos.html">Módulos</a>
+            </div>
+            <div class="footer-links">
+                <h4>Recursos</h4>
+                <a href="index.html#insights">Insights</a>
+                <a href="blog.html">Blog</a>
+            </div>
+            <div class="footer-links">
+                <h4>Contacto</h4>
+                <a href="index.html#contacto">Contacto</a>
+                <a href="https://advance.globalfmm.com">Ingresar a Advance</a>
+            </div>
+            <div class="footer-links">
+                <h4>Legal</h4>
+                <a href="politica-privacidad.html">Privacidad</a>
+            </div>
+        </div>
+        <div class="footer-bottom container">
+            <p>&copy; 2026 Advance IA & Global FMM. Todos los derechos reservados.</p>
+            <div class="partner-logo-subtle" style="opacity: 0.4;">
+                <span>Powered by</span>
+                <img src="img/google-full-logo.png" alt="Google Cloud" style="height: 16px;">
+            </div>
+        </div>
+    </footer>
+
+    <script src="../../../marketing-site/js/main.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
