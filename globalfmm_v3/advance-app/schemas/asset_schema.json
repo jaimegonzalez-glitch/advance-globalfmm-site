@@ -1,0 +1,92 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "AdvanceIA_Asset",
+    "description": "Definición técnica de un activo crítico para el ecosistema Advance",
+    "type": "object",
+    "required": [
+        "asset_id",
+        "name",
+        "type",
+        "status",
+        "location"
+    ],
+    "properties": {
+        "asset_id": {
+            "type": "string",
+            "description": "UUID único del activo"
+        },
+        "name": {
+            "type": "string",
+            "description": "Nombre operativo del activo (ej: Chiller-01)"
+        },
+        "type": {
+            "type": "string",
+            "enum": [
+                "HVAC",
+                "ELECTRICAL",
+                "ELEVATION",
+                "HYDRAULIC",
+                "SECURITY"
+            ],
+            "description": "Categoría técnica del activo"
+        },
+        "status": {
+            "type": "string",
+            "enum": [
+                "OPERATIONAL",
+                "MAINTENANCE",
+                "CRITICAL_FAILURE",
+                "DECOMMISSIONED"
+            ],
+            "default": "OPERATIONAL"
+        },
+        "location": {
+            "type": "object",
+            "properties": {
+                "site": {
+                    "type": "string"
+                },
+                "floor": {
+                    "type": "string"
+                },
+                "coordinates": {
+                    "type": "object",
+                    "properties": {
+                        "lat": {
+                            "type": "number"
+                        },
+                        "lng": {
+                            "type": "number"
+                        }
+                    }
+                }
+            }
+        },
+        "telemetry_config": {
+            "type": "object",
+            "properties": {
+                "iot_provider": {
+                    "type": "string",
+                    "default": "google-cloud-iot"
+                },
+                "reporting_interval_seconds": {
+                    "type": "integer",
+                    "default": 60
+                }
+            }
+        },
+        "metadata": {
+            "type": "object",
+            "additionalProperties": true,
+            "description": "Campos dinámicos para BigQuery ML"
+        },
+        "created_at": {
+            "type": "string",
+            "format": "date-time"
+        },
+        "updated_at": {
+            "type": "string",
+            "format": "date-time"
+        }
+    }
+}

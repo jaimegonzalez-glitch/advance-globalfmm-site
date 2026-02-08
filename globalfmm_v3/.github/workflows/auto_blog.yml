@@ -1,0 +1,38 @@
+name: Auto Generate Blog Post
+
+on:
+  schedule:
+    # Runs at 00:00 on day 1 and 15 of every month
+    - cron: '0 0 1,15 * *'
+  workflow_dispatch: # Allows manual trigger for testing
+
+jobs:
+  generate-post:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm install
+        working-directory: marketing-site
+
+      - name: Run generation script
+        env:
+          GOOGLE_API_KEY: ${{ secrets.GOOGLE_API_KEY }}
+        run: node scripts/automate_blog.js
+        working-directory: marketing-site
+
+      - name: Commit and push changes
+        run: |
+          git config --global user.name "Advance IA Bot"
+          git config --global user.email "bot@globalfmm.com"
+          git add .
+          git commit -m "Auto-generated blog post: $(date +'%Y-%m-%d')" || echo "No changes to commit"
+          git push
